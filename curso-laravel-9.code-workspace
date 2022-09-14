@@ -1532,7 +1532,7 @@
 		//  - vs-seti
 		//  - material-icon-theme
 		//  - vscode-icons
-		"workbench.iconTheme": "vs-seti",
+		"workbench.iconTheme": "vscode-icons",
 	
 		// Controla se os controles de layout na barra de título personalizada são ativados por meio de `window.titleBarStyle`.
 		"workbench.layoutControl.enabled": true,
