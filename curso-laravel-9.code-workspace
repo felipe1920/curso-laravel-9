@@ -1059,10 +1059,6 @@
 		// Emular o comportamento da seleção dos caracteres de tabulação ao usar espaços para recuo. A seleção respeitará as paradas de tabulação.
 		"editor.stickyTabStops": false,
 	
-		// Esta configuração foi preterida. Use configurações separadas como 'editor.suggest.showKeywords' ou 'editor.suggest.showSnippets'.
-		// 
-		"editor.suggest.filteredTypes": {},
-	
 		// Controla se a filtragem e classificação de sugestões considera erros pequenos de digitação.
 		"editor.suggest.filterGraceful": true,
 	
@@ -1808,7 +1804,7 @@
 		"window.titleSeparator": " - ",
 	
 		// Ajustar o nível de zoom da janela. O tamanho original é 0 e cada incremento acima (por exemplo, 1) ou abaixo (por exemplo, -1) representa zoom 20% maior ou menor. Você também pode inserir decimais para ajustar o nível de zoom com uma granularidade mais fina.
-		"window.zoomLevel": 0,
+		"window.zoomLevel": 2,
 	
 		// Configurar associações de arquivo para linguagens (por exemplo, `"*.extension": "html"`). Elas têm precedência sobre as associações padrão das linguagens instaladas.
 		"files.associations": {},
@@ -2113,10 +2109,6 @@
 	
 		// Controla se os ciclos de links devem ser seguidos durante a pesquisa.
 		"search.followSymlinks": true,
-	
-		// Essa configuração foi preterida. Em vez disso, você pode arrastar o ícone de pesquisa para um novo local.
-		// Controla se a pesquisa será mostrada como um modo de exibição na barra lateral ou como um painel na área do painel para obter mais espaço horizontal.
-		"search.location": "sidebar",
 	
 		// O cache de pesquisa é mantido no host de extensão que nunca é desligado. Portanto, essa configuração não é mais necessária.
 		// Quando habilitado, o processo de searchService será mantido ativo em vez de ser desligado após uma hora de inatividade. Isso manterá o cache de pesquisa de arquivo na memória.

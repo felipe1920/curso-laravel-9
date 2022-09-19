@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Listagem de Usuários')
+@section('title', 'Comentários do Usuários')
 
 @section('content')
 
     <header id="header" class="relative z-20">
         <div class="flex items-center">
             <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
-                Listagem de usuários</h1>
+                Comentários do Usuários</h1>
         </div>
     </header>
-    <form action="{{ route('users.index') }}" method="get" class="mt-4">
+    <form action="{{ route('comments.index', $user->id) }}" method="get" class="mt-4">
         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
         <div class="relative">
             <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -25,7 +25,7 @@
                 placeholder="Search Mockups, Logos...">
             <button type="submit"
                 class="text-white absolute right-24 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buscar</button>
-            <a href="{{ route('users.create') }}"
+            <a href="{{ route('comments.create', $user->id) }}"
                 class="text-white absolute right-2.5 bottom-2.5 bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-800">Novo</a>
 
         </div>
@@ -35,16 +35,10 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="py-3 px-6">
-                        Nome
+                        Comentario
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        E-mail
-                    </th>
-                    <th scope="col" class="py-3 px-6 text-center">
-                        Detalhes
-                    </th>
-                    <th scope="col" class="py-3 px-6 text-center">
-                        Comentários
+                        visivel
                     </th>
                     <th scope="col" class="py-3 px-6 text-center">
                         Editar
@@ -52,24 +46,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $user)
+                @foreach ($comments as $comment)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
                         <th class="py-4 px-6">
-                            {{ $user->name }}
+                            {{ $comment->body }}
                         </th>
                         <td class="py-4 px-6">
-                            {{ $user->email }}
+                            {{ $comment->visible ? 'SIM' : 'NÃO'}}
                         </td>
                         <td class="py-4 px-6 text-center">
-                            <a href="{{ route('users.show', $user->id) }}"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Detalhes</a>
-                        </td>
-                        <td class="py-4 px-6 text-center">
-                            <a href="{{ route('comments.index', $user->id) }}"
-                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Comentários (0)</a>
-                        </td>
-                        <td class="py-4 px-6 text-center">
-                            <a href="{{ route('users.edit', $user->id) }}"
+                            <a href="{{ route('comments.edit', [$user->id, $comment->id]) }}"
                                 class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Editar</a>
                         </td>
                     </tr>
