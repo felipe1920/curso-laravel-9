@@ -13,6 +13,11 @@
 <body class="antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900">
     <div class="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
         <div class="max-w-3xl mx-auto xl:max-w-none xl:ml-0">
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+
             @yield('content')
         </div>
     </div>
