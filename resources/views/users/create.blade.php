@@ -12,7 +12,7 @@
         </div>
     </header>
 
-    <form action="{{ route('users.store') }}" method="POST" class="mt-4">
+    <form action="{{ route('users.store') }}" method="POST" class="mt-4" enctype="multipart/form-data">
         @include('users._partials.form')
     </form>
 

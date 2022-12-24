@@ -38,6 +38,11 @@ class StoreUpdateUserFormRequest extends FormRequest
                 'required', // nullable - não obrigatório, mas se preencher tem que obedesser todas as regras 
                 'min:6',
                 'max:15',
+            ],
+            'image' => [
+                'nullable',
+                'image',
+                'max:5000',
             ]
         ];
 

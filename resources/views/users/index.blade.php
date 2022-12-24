@@ -22,7 +22,7 @@
             </div>
             <input type="search" id="default-search" name="search"
                 class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Search Mockups, Logos..." value="{{request()->get('search', '')}}">
+                placeholder="Search Mockups, Logos..." value="{{ request()->get('search', '') }}">
             <button type="submit"
                 class="text-white absolute right-24 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Buscar</button>
             <a href="{{ route('users.create') }}"
@@ -34,6 +34,9 @@
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
+                    <th scope="col" class="py-3 px-6">
+                        imagem
+                    </th>
                     <th scope="col" class="py-3 px-6">
                         Nome
                     </th>
@@ -54,6 +57,12 @@
             <tbody>
                 @foreach ($users as $user)
                     <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+                        <th class="py-4 px-6">
+                            @if ($user->image)
+                                <img src="{{ url("storage/{$user->image}") }}">
+                            @endif
+
+                        </th>
                         <th class="py-4 px-6">
                             {{ $user->name }}
                         </th>

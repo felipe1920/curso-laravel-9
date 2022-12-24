@@ -12,7 +12,7 @@
         </div>
     </header>
     
-    <form action="{{ route('users.update', $user->id) }}" method="post" class="mt-4">
+    <form action="{{ route('users.update', $user->id) }}" method="post" class="mt-4" enctype="multipart/form-data">
         @method('patch')
         @include('users._partials.form')
     </form>
