@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\{
-    UserController
+    UserController,
+    TesteController
 };
 use App\Http\Controllers\Admin\CommentController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/teste', [TesteController::class, 'index'])->name('teste');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/users/{id}/comments/create', [CommentController::class, 'create'])->name('comments.create');
     Route::get('/users/{user}/comments/{id}/edit', [CommentController::class, 'edit'])->name('comments.edit');
@@ -31,8 +34,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/users', [UserController::class, 'store'])->name('users.store');
     Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
 });
-
-
 
 Route::get('/', function () {
     return view('welcome');
